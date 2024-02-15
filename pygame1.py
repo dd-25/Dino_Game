@@ -26,9 +26,9 @@ class Dino(pygame.sprite.Sprite):
     
     def dino_input(self):
         keys = pygame.key.get_pressed()
-        if (keys[pygame.K_UP] or keys[pygame.K_w] or keys[pygame.K_SPACE]) and self.rect.bottom >= 200:
+        if (keys[pygame.K_UP] or keys[pygame.K_w] or keys[pygame.K_SPACE]) and self.rect.bottom >= 300:
             self.sound.play()
-            self.gravity = -15
+            self.gravity = -20
     
     def apply_gravity(self):
         self.gravity += 1
@@ -69,7 +69,7 @@ class Obstacle(pygame.sprite.Sprite):
             self.kill()
     
     def update(self):
-        self.rect.x -= 6
+        self.rect.x -= 6.1
         self.destroy()
 
 bg_sound = pygame.mixer.Sound('F:/IIITN/Coding/Python/Ash_Dino_Game/Background_music.mp3')
@@ -125,7 +125,7 @@ dino.add(Dino())
 obstacle_group = pygame.sprite.Group()
 
 obstacle_timer = pygame.USEREVENT + 1
-pygame.time.set_timer(obstacle_timer,1500)
+pygame.time.set_timer(obstacle_timer,1800)
 
 score_now = 0
 
